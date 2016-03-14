@@ -29,14 +29,17 @@ function Audio($audioElem){
   this.isValidTime = function(time){
     return 0 <= time && time <= this.getDuration();
   }
-  this.changeSource = function(path, progresscb, donecb){
+  this.changeSource = function(path, loadstartcb, donecb, errorcb){
     $audioElem.children('source').prop('src', path);
     $audioElem.trigger('load');
-    if(progresscb && $.isFunction(progresscb)){
-      this.on('loadstart', progresscb)
+    if(loadstartcb && $.isFunction(loadstartcb)){
+      this.on('loadstart', loadstartcb)
     }
     if(donecb && $.isFunction(donecb)){
       this.on('loadedmetadata', donecb);
+    }
+    if(errorcb && $.isFunction(errorcb)){
+      this.on('error', errorcb);
     }
   };
   this.on = function(event, handler){

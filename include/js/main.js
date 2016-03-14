@@ -8,9 +8,10 @@ var changeAudio = (function(){
 
     audio.changeSource(path, function(){
       $('.playback_options').hide(); 
-      $('.loading_message').show();
+      $('.message').html('Loading...');
+      $('.message').show();
     }, function(){
-      $('.loading_message').hide();
+      $('.message').hide();
       $('.playback_options').show(); 
 
       audioLooper = new AudioLooper(audio);
@@ -70,6 +71,10 @@ var changeAudio = (function(){
         $exactTo.children('.time').val(getHumanTime(audioLooper.getTo()));
       });
 
+    }, function(){
+      $('.playback_options').hide(); 
+      $('.message').html('Please select an audio from the above.');
+      $('.message').show();
     });
   };
 })();
