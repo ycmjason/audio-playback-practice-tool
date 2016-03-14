@@ -58,6 +58,10 @@ $(window).load(function(){
 $exactFrom = $('.playback_options .exact .from');
 $exactTo = $('.playback_options .exact .to');
 
+$('button').click(function(){
+  $(window).focus();
+});
+
 $exactFrom.children('.leftshift').click(function(){
   audioLooper.setFrom(audioLooper.getFrom()-1);
   console.log('hi');
