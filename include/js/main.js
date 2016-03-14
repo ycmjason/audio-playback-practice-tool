@@ -1,6 +1,9 @@
 var audio = new Audio($('audio'));
 var changeAudio = (function(){
   var audioLooper;
+  var isValidPath = function(path){
+    $.inArray(path, navItems.map(function(item){return item.href;}));
+  }
   return function(path){
     if(audioLooper){
       audioLooper.kill();
@@ -8,8 +11,11 @@ var changeAudio = (function(){
 
     audio.changeSource(path, function(){
       $('.playback_options').hide(); 
-      $('.message').html('Loading...');
-      $('.message').show();
+      if(isValidPath(path)){
+        $('.message').html('Loading...').show();
+      }else{
+        $('.message').html('Please select a file from the above.').show();
+      }
     }, function(){
       $('.message').hide();
       $('.playback_options').show(); 
@@ -71,11 +77,8 @@ var changeAudio = (function(){
         $exactTo.children('.time').val(getHumanTime(audioLooper.getTo()));
       });
 
-    }, function(){
-      $('.playback_options').hide(); 
-      $('.message').html('Please select an audio from the above.');
-      $('.message').show();
-    });
+    }
+    );
   };
 })();
 
@@ -104,4 +107,8 @@ $(window).keydown(function(event){
       audio.setCurrentTime(audio.getCurrentTime()+3)
       break;
   }
+});
+
+$(window).load(function(){
+  $('html, body').fadeIn(1000);
 });
