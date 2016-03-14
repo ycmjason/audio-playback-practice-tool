@@ -29,11 +29,12 @@ function Audio($audioElem){
   this.isValidTime = function(time){
     return 0 <= time && time <= this.getDuration();
   }
-  this.changeSource = function(path, callback){
+  this.changeSource = function(path, progresscb, donecb){
     $audioElem.children('source').prop('src', path);
     $audioElem.trigger('load');
     if(callback && $.isFunction(callback)){
-      this.on('loadedmetadata', callback);
+      this.on('progress', progresscb)
+      this.on('loadedmetadata', donecb);
     }
   };
   this.on = function(event, handler){

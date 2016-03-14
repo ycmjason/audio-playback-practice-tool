@@ -7,6 +7,12 @@ var changeAudio = (function(){
     }
 
     audio.changeSource(path, function(){
+      $('playback_options').hide(); 
+      $('loading_message').show();
+    }, function(){
+      $('loading_message').hide();
+      $('playback_options').show(); 
+
       audioLooper = new AudioLooper(audio);
 
       $exactFrom = $('.playback_options .exact .from');
