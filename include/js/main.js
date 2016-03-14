@@ -7,11 +7,11 @@ var changeAudio = (function(){
     }
 
     audio.changeSource(path, function(){
-      $('playback_options').hide(); 
-      $('loading_message').show();
+      $('.playback_options').hide(); 
+      $('.loading_message').show();
     }, function(){
-      $('loading_message').hide();
-      $('playback_options').show(); 
+      $('.loading_message').hide();
+      $('.playback_options').show(); 
 
       audioLooper = new AudioLooper(audio);
 

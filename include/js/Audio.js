@@ -33,7 +33,7 @@ function Audio($audioElem){
     $audioElem.children('source').prop('src', path);
     $audioElem.trigger('load');
     if(progresscb && $.isFunction(progresscb)){
-      this.on('progress', progresscb)
+      this.on('loadstart', progresscb)
     }
     if(donecb && $.isFunction(donecb)){
       this.on('loadedmetadata', donecb);
