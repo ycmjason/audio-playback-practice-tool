@@ -2,7 +2,8 @@ var audio = new Audio($('audio'));
 var changeAudio = (function(){
   var audioLooper;
   var isValidPath = function(path){
-    return $.inArray(path, navItems.map(function(item){return item.href.substr(1);}));
+    path = '#'+path;
+    return navItems.map(function(item){return item.href;}).indexOf(path) > -1;
   }
   return function(path){
     if(audioLooper){
@@ -11,7 +12,7 @@ var changeAudio = (function(){
 
     audio.changeSource(path, function(){
       $('.playback_options').hide(); 
-      console.log(isValidPath(path));
+      console.log(isValidPath(path), path);
       if(isValidPath(path)){
         $('.message').html('Loading...').show();
       }else{
