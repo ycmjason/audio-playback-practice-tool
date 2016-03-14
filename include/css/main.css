@@ -1,0 +1,18 @@
+html, body{
+  font-family: arial,sans-serif;
+}
+div{
+  line-height:1.5em;
+}
+
+.playback_options .exact .from,
+.playback_options .exact .to{
+  display: inline-block;
+}
+h4{
+  margin-bottom:0.2em;
+}
+
+ul{
+  margin-top:0
+}

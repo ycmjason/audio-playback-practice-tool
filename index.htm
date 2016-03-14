@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Playback tool</title>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="include/css/main.css"></link>
+  </head>
+  <body>
+    <div style="width: 800px; margin-left:auto; margin-right:auto;">
+      <header>
+        <h1>Playback tool<br>
+        <small>just a simple tool designed for the mockingbird, or just myself.</small>
+        </h1>
+      </header>
+      <!-- nav for audios -->
+      <nav>
+        <h4>Audio available:</h4>
+        <ul>
+          <li><a href="#audio/mb1.m4a">first half</a></li>
+          <li><a href="#audio/mb2.m4a">second half</a></li>
+        </ul>
+      </nav>
+      <!-- END: nav for audios -->
+
+      <!-- main sections -->
+      <div>
+        <audio controls style="width:100%; margin-bottom:0.5em;">
+          <source src="" type="audio/mpeg">
+          Your browser does not support the audio tag.
+        </audio>
+        <section class="playback_options">
+          <div class="exact">
+            Playback from
+            <div class="from">
+              <input type="button" size="1" value="<" class="leftshift">
+              <input type="text" size="5" class="time">
+              <input type="button" size="1" value=">" class="rightshift">
+            </div>
+            to
+            <div class="to">
+              <input type="button" size="1" value="<" class="leftshift">
+              <input type="text" size="5" class="time">
+              <input type="button" size="1" value=">" class="rightshift">
+            </div>
+          </div>
+          <div class="approximate">
+            Playback from
+            <input type="button" value="here" class="from">
+            to
+            <input type="button" value="here" class="to">.
+          </div>
+          <div>
+            <input type="button" value="reset" class="reset">
+          </div>
+        </section>
+      </div>
+      <!-- END: main sections -->
+
+      <!-- keybaord shortcuts: -->
+      <section>
+        <h4>Keyboard shortcuts:</h4>
+        <ul>
+          <li><strong>Space</strong> to play/pause.</li>
+          <li><strong>Left/right arrow</strong> to seek 3s forward/backword.</li>
+        </ul>
+      </section>
+      <!-- END: keybaord shortcuts: -->
+    </div>
+    <script src="include/js/AudioLooper.js"></script>
+    <script src="include/js/Audio.js"></script>
+    <script src="include/js/utils.js"></script>
+    <script src="include/js/main.js"></script>
+  </body>
+</html>
