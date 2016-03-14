@@ -12,7 +12,6 @@ var changeAudio = (function(){
 
     audio.changeSource(path, function(){
       $('.playback_options').hide(); 
-      console.log(isValidPath(path), path);
       if(isValidPath(path)){
         $('.message').html('Loading...').show();
       }else{
