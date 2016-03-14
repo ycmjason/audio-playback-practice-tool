@@ -2,7 +2,7 @@ var audio = new Audio($('audio'));
 var changeAudio = (function(){
   var audioLooper;
   var isValidPath = function(path){
-    $.inArray(path, navItems.map(function(item){return item.href.substr(1);}));
+    return $.inArray(path, navItems.map(function(item){return item.href.substr(1);}));
   }
   return function(path){
     if(audioLooper){
