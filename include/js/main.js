@@ -43,12 +43,20 @@ $(window).keydown(function(event){
       }
       break;
     case LEFTARROW:
-      audio.setCurrentTime(audio.getCurrentTime()-3)
+      if(event.metaKey){
+        event.preventDefault();
+        audioLooper.loopBack();
+      }else{
+        audio.setCurrentTime(audio.getCurrentTime()-3)
+      }
       break;
     case RIGHTARROW:
       audio.setCurrentTime(audio.getCurrentTime()+3)
       break;
+    default:
+      return;
   }
+  event.preventDefault();
 });
 
 $(window).load(function(){
@@ -57,10 +65,6 @@ $(window).load(function(){
 
 $exactFrom = $('.playback_options .exact .from');
 $exactTo = $('.playback_options .exact .to');
-
-$('button').click(function(){
-  $(window).focus();
-});
 
 $exactFrom.children('.leftshift').click(function(){
   audioLooper.setFrom(audioLooper.getFrom()-1);
